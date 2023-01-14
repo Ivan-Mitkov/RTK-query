@@ -5,6 +5,10 @@ const usersAdapter = createEntityAdapter()
 
 const initialState = usersAdapter.getInitialState()
 
+/**
+ * https://redux-toolkit.js.org/rtk-query/usage/code-splitting
+ * RTK Query makes it possible to trim down your initial bundle size by allowing you to inject additional endpoints after you've set up your initial service definition.
+ */
 export const usersApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         getUsers: builder.query({
