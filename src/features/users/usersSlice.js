@@ -14,6 +14,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
         getUsers: builder.query({
             query: () => '/users',
             transformResponse: responseData => {
+                //accepts an array of entities or an object in the shape of Record<EntityId, T>, and replaces all existing entities with the values in the array.
                 return usersAdapter.setAll(initialState, responseData)
             },
             providesTags: (result, error, arg) => [

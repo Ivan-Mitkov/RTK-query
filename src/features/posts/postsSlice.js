@@ -27,10 +27,22 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
                 });
                 return postsAdapter.setAll(initialState, loadedPosts)
             },
-            providesTags: (result, error, arg) => [
+            /**
+             * 
+             For more granular control over the provided data, provided tags can have an associated id. This enables a distinction between 'any of a particular tag type', and 'a specific instance of a particular tag type'.
+             */
+            providesTags: (result, error, arg) =>{ 
+                console.log(result)
+                return[
+                /**
+                 * https://redux-toolkit.js.org/rtk-query/usage/automated-refetching#advanced-invalidation-with-abstract-tag-ids
+                 * While using an 'entity ID' for a tag id is a common use case, the id property is not intended to be limited to database IDs alone. The id is simply a way to label a subset of a particular collection of data for a particular tag type.
+
+A powerful use-case is to use an ID like 'LIST' as a label for data provided by a bulk query, as well as using entity IDs for the individual items. Doing so allows future mutations to declare whether they invalidate the data only if it contains a particular item (e.g. { type: 'Post', id: 5 }), or invalidate the data if it is a 'LIST' (e.g. { type: 'Post', id: 'LIST' }).
+                 */
                 { type: 'Post', id: "LIST" },
                 ...result.ids.map(id => ({ type: 'Post', id }))
-            ]
+            ]}
         }),
         getPostsByUserId: builder.query({
             query: id => `/posts/?userId=${id}`,
@@ -70,6 +82,11 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
                     }
                 }
             }),
+            /**
+             * RTK Query uses a "cache tag" system to automate re-fetching for query endpoints that have data affected by mutation endpoints. This enables designing your API such that firing a specific mutation will cause a certain query endpoint to consider its cached data invalid, and re-fetch the data if there is an active subscription.
+
+Each endpoint + parameter combination contributes its own queryCacheKey. The cache tag system enables the ability to inform RTK Query that a particular query cache has provided specific tags. If a mutation is fired which is said to invalidate tags that a query cache has provided, the cached data will be considered invalidated, and re-fetch if there is an active subscription to the cached data.
+             */
             invalidatesTags: [
                 { type: 'Post', id: "LIST" }
             ]
@@ -83,6 +100,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
                     date: new Date().toISOString()
                 }
             }),
+            //using arg, does not invalidates
             invalidatesTags: (result, error, arg) => [
                 { type: 'Post', id: arg.id }
             ]
@@ -121,7 +139,11 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
                 } catch {
                     patchResult.undo()
                 }
-            }
+            },
+            invalidatesTags: (result, error, arg) => [
+                { type: 'Post', id: "LIST" },
+                { type: 'Post', id: arg.id },
+            ]
         })
     })
 })

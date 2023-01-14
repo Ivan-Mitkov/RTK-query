@@ -317,22 +317,38 @@
       "date": "2023-01-14T10:54:38.047Z"
     },
     {
-      "userId": 2,
       "id": 12,
-      "title": "in quibusdam tempore odit est dolorem",
-      "body": "itaque id aut magnam\npraesentium quia et ea odit et ea voluptas et\nsapiente quia nihil amet occaecati quia id voluptatem\nincidunt ea est distinctio odio"
+      "title": "1in quibusdam tempore odit est dolorem",
+      "body": "itaque id aut magnam\npraesentium quia et ea odit et ea voluptas et\nsapiente quia nihil amet occaecati quia id voluptatem\nincidunt ea est distinctio odio",
+      "userId": 2,
+      "date": "2023-01-14T12:02:06.360Z",
+      "reactions": {
+        "thumbsUp": 0,
+        "wow": 0,
+        "heart": 1,
+        "rocket": 0,
+        "coffee": 0
+      }
     },
     {
-      "userId": 2,
       "id": 13,
-      "title": "dolorum ut in voluptas mollitia et saepe quo animi",
-      "body": "aut dicta possimus sint mollitia voluptas commodi quo doloremque\niste corrupti reiciendis voluptatem eius rerum\nsit cumque quod eligendi laborum minima\nperferendis recusandae assumenda consectetur porro architecto ipsum ipsam"
+      "title": "1 dolorum ut in voluptas mollitia et saepe quo animi",
+      "body": "aut dicta possimus sint mollitia voluptas commodi quo doloremque\niste corrupti reiciendis voluptatem eius rerum\nsit cumque quod eligendi laborum minima\nperferendis recusandae assumenda consectetur porro architecto ipsum ipsam",
+      "userId": 2,
+      "date": "2023-01-14T12:15:13.646Z"
     },
     {
       "userId": 2,
       "id": 14,
       "title": "voluptatem eligendi optio",
-      "body": "fuga et accusamus dolorum perferendis illo voluptas\nnon doloremque neque facere\nad qui dolorum molestiae beatae\nsed aut voluptas totam sit illum"
+      "body": "fuga et accusamus dolorum perferendis illo voluptas\nnon doloremque neque facere\nad qui dolorum molestiae beatae\nsed aut voluptas totam sit illum",
+      "reactions": {
+        "thumbsUp": 7,
+        "wow": 5,
+        "heart": 5,
+        "rocket": 0,
+        "coffee": 0
+      }
     },
     {
       "userId": 2,
@@ -371,10 +387,11 @@
       "body": "qui consequuntur ducimus possimus quisquam amet similique\nsuscipit porro ipsam amet\neos veritatis officiis exercitationem vel fugit aut necessitatibus totam\nomnis rerum consequatur expedita quidem cumque explicabo"
     },
     {
-      "userId": 3,
       "id": 21,
-      "title": "asperiores ea ipsam voluptatibus modi minima quia sint",
-      "body": "repellat aliquid praesentium dolorem quo\nsed totam minus non itaque\nnihil labore molestiae sunt dolor eveniet hic recusandae veniam\ntempora et tenetur expedita sunt"
+      "title": "aperiores ea ipsam voluptatibus modi minima quia sint",
+      "body": "repellat aliquid praesentium dolorem quo\nsed totam minus non itaque\nnihil labore molestiae sunt dolor eveniet hic recusandae veniam\ntempora et tenetur expedita sunt",
+      "userId": 3,
+      "date": "2023-01-14T11:29:50.400Z"
     },
     {
       "userId": 3,
@@ -395,10 +412,11 @@
       "body": "enim et ex nulla\nomnis voluptas quia qui\nvoluptatem consequatur numquam aliquam sunt\ntotam recusandae id dignissimos aut sed asperiores deserunt"
     },
     {
-      "userId": 3,
       "id": 25,
       "title": "rem alias distinctio quo quis",
-      "body": "ullam consequatur ut\nomnis quis sit vel consequuntur\nipsa eligendi ipsum molestiae et omnis error nostrum\nmolestiae illo tempore quia et distinctio"
+      "body": "llam consequatur ut\nomnis quis sit vel consequuntur\nipsa eligendi ipsum molestiae et omnis error nostrum\nmolestiae illo tempore quia et distinctio",
+      "userId": 3,
+      "date": "2023-01-14T12:00:34.783Z"
     },
     {
       "userId": 3,
@@ -885,6 +903,20 @@
         "coffee": 0
       },
       "id": 103
+    },
+    {
+      "id": 104,
+      "title": "1 new post",
+      "body": "dfdsdfs",
+      "userId": 2,
+      "date": "2023-01-14T12:28:11.798Z",
+      "reactions": {
+        "thumbsUp": 0,
+        "wow": 1,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 1
+      }
     }
   ]
 }
