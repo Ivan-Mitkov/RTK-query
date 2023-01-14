@@ -8,6 +8,10 @@ const postsAdapter = createEntityAdapter({
 
 const initialState = postsAdapter.getInitialState()
 
+ /**
+             * RTK Query uses a "cache tag" system to automate re-fetching for query endpoints that have data affected by mutation endpoints. This enables designing your API such that firing a specific mutation will cause a certain query endpoint to consider its cached data invalid, and re-fetch the data if there is an active subscription.
+* Each endpoint + parameter combination contributes its own queryCacheKey. The cache tag system enables the ability to inform RTK * Query that a particular query cache has provided specific tags. If a mutation is fired which is said to invalidate tags that a  query cache has provided, the cached data will be considered invalidated, and re-fetch if there is an active subscription to the cached data.
+*/
 export const extendedApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         getPosts: builder.query({
@@ -82,11 +86,7 @@ A powerful use-case is to use an ID like 'LIST' as a label for data provided by 
                     }
                 }
             }),
-            /**
-             * RTK Query uses a "cache tag" system to automate re-fetching for query endpoints that have data affected by mutation endpoints. This enables designing your API such that firing a specific mutation will cause a certain query endpoint to consider its cached data invalid, and re-fetch the data if there is an active subscription.
-
-Each endpoint + parameter combination contributes its own queryCacheKey. The cache tag system enables the ability to inform RTK Query that a particular query cache has provided specific tags. If a mutation is fired which is said to invalidate tags that a query cache has provided, the cached data will be considered invalidated, and re-fetch if there is an active subscription to the cached data.
-             */
+           
             invalidatesTags: [
                 { type: 'Post', id: "LIST" }
             ]
@@ -140,10 +140,7 @@ Each endpoint + parameter combination contributes its own queryCacheKey. The cac
                     patchResult.undo()
                 }
             },
-            invalidatesTags: (result, error, arg) => [
-                { type: 'Post', id: "LIST" },
-                { type: 'Post', id: arg.id },
-            ]
+         
         })
     })
 })
